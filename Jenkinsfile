@@ -61,6 +61,7 @@ pipeline {
             }
         }
 
+		/*
  
         stage('Deploy to Production fixed server') {
             when {
@@ -71,7 +72,7 @@ pipeline {
                 script {
                     productionImage.push("deploy")
                     sh """
-                       aws ec2 reboot-instances --region us-east-1 --instance-ids i-0e438e2bf64427c9d
+                       aws ec2 reboot-instances --region ca-central-1 --instance-ids i-0e438e2bf64427c9d
                     """
                 }
             }
@@ -85,7 +86,7 @@ pipeline {
             steps {
                 echo 'Deploy to test environment and run integration tests'
                 script {
-                    TEST_ALB_LISTENER_ARN="arn:aws:elasticloadbalancing:us-east-1:089778365617:listener/app/testing-website/3a4d20158ad2c734/49cb56d533c1772b"
+                    TEST_ALB_LISTENER_ARN="arn:aws:elasticloadbalancing:ca-central-1:089778365617:listener/app/testing-website/3a4d20158ad2c734/49cb56d533c1772b"
                     sh """
                     ./run-stack.sh example-webapp-test ${TEST_ALB_LISTENER_ARN}
                     """
@@ -120,5 +121,7 @@ pipeline {
                 }
             }
         }
+		
+		*/
     }
 }
