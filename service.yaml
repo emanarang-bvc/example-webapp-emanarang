@@ -3,7 +3,7 @@ Description: >
 
 Parameters:
     DockerImage:
-        Description:  123456789.dkr.ecr.us-east-1.amazonaws.com/YOUR-REGISTRY-HERE:git-hash
+        Description:  687435209454.dkr.ecr.ca-central-1.amazonaws.com/example-webapp:HEAD
         Type: String
 
     VPC:
