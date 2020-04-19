@@ -107,6 +107,7 @@ pipeline {
             }
         }
 
+		*/
  
         stage('Deploy to Production') {
             when {
@@ -114,7 +115,7 @@ pipeline {
             }
             steps {
                 script {
-                    PRODUCTION_ALB_LISTENER_ARN="arn:aws:elasticloadbalancing:ca-central-1:687435209454:listener/app/production-website/a0459c11ab5707ca/5d21528a13519da6"
+                    PRODUCTION_ALB_LISTENER_ARN="arn:aws:elasticloadbalancing:ca-central-1:687435209454:listener/app/production-website/054a41c5b653c8d7/f57ac39ce75a4558"
                     sh """
                     ./run-stack.sh example-webapp-production ${PRODUCTION_ALB_LISTENER_ARN}
                     """
@@ -122,6 +123,5 @@ pipeline {
             }
         }
 		
-		*/
     }
 }
