@@ -20,7 +20,7 @@ aws cloudformation deploy \
     --parameter-overrides \
     "DockerImage=687435209454.dkr.ecr.ca-central-1.amazonaws.com/example-webapp:$(git rev-parse HEAD)" \
 	"VPC=vpc-ff5b1c97" \
-	"Subnet=subnet-33063e6f" \
+	"Subnet=subnet-468cf92e" \
 	"Cluster=default" \
 	"Listener=$ALB_LISTENER_ARN"
 	
