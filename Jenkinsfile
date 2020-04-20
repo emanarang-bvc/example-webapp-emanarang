@@ -77,7 +77,6 @@ pipeline {
             }
         }
 
-		/*
 		
         stage('Integration Tests') {
             when {
@@ -86,15 +85,15 @@ pipeline {
             steps {
                 echo 'Deploy to test environment and run integration tests'
                 script {
-                    TEST_ALB_LISTENER_ARN="arn:aws:elasticloadbalancing:ca-central-1:687435209454:listener/app/testing-website/3a4d20158ad2c734/49cb56d533c1772b"
+                    TEST_ALB_LISTENER_ARN="arn:aws:elasticloadbalancing:ca-central-1:687435209454:listener/app/testing-website/100061c8c85f252a/4fa5c29be8a12e34"
                     sh """
-                    ./run-stack.sh example-webapp-test ${TEST_ALB_LISTENER_ARN}
+                    bash ./run-stack.sh example-webapp-test ${TEST_ALB_LISTENER_ARN}
                     """
                 }
                 echo 'Running tests on the integration test environment'
                 script {
                     sh """
-                       curl -v http://testing-website-1317230480.ca-central-1.elb.amazonaws.com | grep '<title>Welcome to example-webapp</title>'
+                       curl -v testing-website-1203505932.ca-central-1.elb.amazonaws.com | grep '<title>Welcome to example-webapp</title>'
                        if [ \$? -eq 0 ]
                        then
                            echo tests pass
@@ -106,8 +105,6 @@ pipeline {
                 }
             }
         }
-
-		*/
  
         stage('Deploy to Production') {
             when {
